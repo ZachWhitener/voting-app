@@ -1,5 +1,5 @@
 
 
 module.exports = {
-    'url' : process.env.MONGO_URI
+    'url' : 'mongodb://localhost/db1'
 }; 

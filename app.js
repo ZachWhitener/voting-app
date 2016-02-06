@@ -12,9 +12,10 @@ var configDB = require('./config/database.js');
 var router = express.Router();
 
 require('dotenv').load();
+console.log(configDB);
 
 // Connect to the database
-//mongoose.connect(configDB.url);
+mongoose.connect(configDB.url);
 require('./config/passport')(passport); //Pass passport for configuration
 
 app.use(morgan('dev'));

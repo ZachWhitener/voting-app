@@ -25,10 +25,14 @@ html
                 li
                   a(href='#contact') Contact
               ul.nav.navbar-nav.navbar-right
-                li
-                  a(href='../navbar/') Default
-                li
-                  a(href='../navbar-static-top/') Static top
+                if (user)
+                  li
+                    a(href='/logout') Sign out
+                else
+                  li 
+                    a(href='/login') Login
+                  li  
+                    a(href='/signup') Sign up
         block content
         
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')
