@@ -39,8 +39,23 @@ Login and Signin
 =====================
 **/
 
-.register-container {
+.small-container {
     padding-top: 100px;
     width: 40%;
     margin: auto;
+}
+
+/**
+=====================
+New Poll
+=====================
+**/
+
+.newpoll.small-container {
+    margin-bottom: 200px;
+    padding-top: 25px;
+}
+
+#numofoptions {
+    display: none;
 }

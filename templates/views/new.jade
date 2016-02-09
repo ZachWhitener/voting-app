@@ -1,0 +1,21 @@
+extends ../layout/index.jade
+
+block content
+    .container
+        h1.text-center= section
+    .small-container.newpoll
+        
+        form(action='/new' method='post' id='newPollForm')
+            .form-group
+                label Title
+                input(type='text' class='form-control' name='title')
+            .form-group
+                label Option 1
+                input(type='text' class='form-control' name='option')
+                
+                input(type='text' name='numofoptions' id='numofoptions')
+            
+            .btn-group.pull-right
+                button.btn.btn-success#add-option
+                    i.fa.fa-plus
+                button.btn.btn-danger#createPoll(type='submit') Create Poll

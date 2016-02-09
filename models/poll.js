@@ -14,8 +14,13 @@ var pollSchema = mongoose.Schema({
     
 });
 
+pollSchema.virtual('url').get(function(){
+    return '/poll/' + this._id; 
+});
+/**
 pollSchema.methods.addOne = function(votes) {
-    return votes + 1;
+    return this.votes + 1;
 }
+**/
 
 module.exports = mongoose.model('Poll', pollSchema);

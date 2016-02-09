@@ -3,3 +3,14 @@ extends ../layout/index.jade
 block content
     .container 
         h1.text-center My Polls
+        
+        .text-center
+            button.btn.btn-success New poll
+                a(href='/new')  
+            
+        .small-container
+            ul.list-group
+            -polls.forEach(function(poll) {
+                li.list-group-item
+                    a(href=poll.url)= poll.title
+            -})
