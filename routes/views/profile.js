@@ -5,7 +5,7 @@ var _ = require('lodash');
 
 exports = module.exports = function(req, res) {
     var locals = res.locals;
-    locals.section = 'Profile';
+    locals.section = 'profile';
     var user = req.user;
     locals.user = user;
     locals.polls = [];

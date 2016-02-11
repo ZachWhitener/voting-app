@@ -13,7 +13,8 @@ exports = module.exports = function(app, passport) {
     app.get('/login', require(path + '/routes/views/auth/login'));
     app.get('/signup', require(path + '/routes/views/auth/signup'));
     app.get('/profile', isLoggedIn, require(path + '/routes/views/profile'));
-    app.get('/new', isLoggedIn, require(path + '/routes/views/new'));
+    app.all('/new', isLoggedIn, require(path + '/routes/views/new'));
+    app.all('/poll/:id', require(path + '/routes/views/poll'));
     // logout
     app.get('/logout', function(req, res){
         locals = res.locals;
@@ -23,7 +24,8 @@ exports = module.exports = function(app, passport) {
     
     // Handle post requests
     
-    app.post('/new', require(path + '/routes/views/new'));
+    
+    //app.post('/new', require(path + '/routes/views/new'));
     // process the login form
     app.post('/login', passport.authenticate('local-login', {
         successRedirect: '/profile', // Redirect to the secure profile section

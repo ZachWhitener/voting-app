@@ -1,0 +1,82 @@
+extends ../layout/index.jade
+
+block content
+    .container.poll
+        h1.text-center= title
+        
+        .row
+            .col-md-4#left
+                form(action='#{ url }' method='post' id='pollVoteForm')
+                    .form-group    
+                        h4
+                            strong= title
+                    .form-group
+                        label Options
+                        select.form-control(name='optionSelect')
+                            -pollOptions.forEach(function(option){
+                                option= option
+                            -});
+                    .form-group
+                        button.btn.btn-success.pull-right(type='submit') Submit
+            .col-md-2
+            .col-md-6#right
+                canvas#myChart
+                ul#colorkey.list-group
+                
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js')
+    script(type='text/javascript').
+        var data = [];
+        var colors = ['#7C4DFF', '#536DFE', '#64FFDA', '#18FFFF', '#69F0AE', '#FF6E40', '#FF5252', '#FF4081', '#E040FB' ];
+        var jsOptions = !{ jsOptions };
+        
+        jsOptions.forEach(function(item, i){
+            var hex = colors[Math.floor(Math.random()*colors.length)]; 
+            var ind = colors.indexOf(hex);
+            console.log(ind);
+            if (colors.length > 1) {
+                colors.splice(ind, 1);
+            }
+            console.log(colors);
+            
+             
+            data.push({
+                value: item.votes,
+                color: hex,
+                label: item.option
+            });
+        });
+        var options = {
+            segmentShowStroke: true, 
+            segmentStrokeColor: '#fff', 
+            segmentStrokeWidth: 2
+        };
+        
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var myDoughnutChart = new Chart(ctx).Doughnut(data,options);
+        
+        var key = document.getElementById('colorkey'); 
+        var node, textnode, spannode; 
+        
+        data.forEach(function(item){
+            node = document.createElement('li');
+            spannode = document.createElement('span'); 
+            spannode.style.display = 'block';
+            spannode.style.height = '15px';
+            spannode.style.width = '15px';
+            spannode.style.backgroundColor = item.color;
+            spannode.style.cssFloat = 'left';
+            spannode.style.margin = '3px 8px 0 0';
+            
+            textnode = document.createTextNode(
+                item.label + ': '+
+                item.value
+            ); 
+            node.appendChild(spannode);
+            node.appendChild(textnode);
+            node.classList.add('list-group-item');
+            key.appendChild(node);
+        });
+        
+        
+        
+        

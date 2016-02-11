@@ -59,3 +59,46 @@ New Poll
 #numofoptions {
     display: none;
 }
+
+/**
+=======================
+View Poll Form
+=======================
+**/
+
+.poll #left {
+    margin-top: 120px;
+}
+
+.poll #right {
+    margin-top: 100px;
+}
+
+#pollVoteForm .form-group {
+    margin-bottom: 20px;
+}
+
+#pollVoteForm .btn {
+    margin-top: 50px;
+}
+
+.poll #myChart {
+    display: block;
+    height: 200px;
+    width: auto;
+    margin: 25px auto;
+}
+
+/**
+=======================
+Profile
+=======================
+**/
+
+.profile .small-container {
+    padding-top: 50px;
+}
+
+.profile .btn {
+    margin-top: 20px;
+}

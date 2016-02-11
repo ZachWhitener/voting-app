@@ -1,22 +1,24 @@
 extends ../../layout/index.jade
 
 block content
-    .small-container
-        h3 Login
-        
-        if message.length > 0
-            .alert.alert-danger= message
-        
-        
-        form(action='/login' method='post')
-            .form-group
-                label Email
-                input(type='text' class='form-control' name='email')
-            .form-group
-                label Password
-                input(type='password' class='form-control' name='password')
-            button(type='submit' class='btn btn-success') Login
+    .container(class=section) 
+        h1.text-center Login
+
+        .small-container
             
-        p.text-center Need an account? <br/>
-            a(href='/signup') Signup
+            if message.length > 0
+                .alert.alert-danger= message
+            
+            
+            form(action='/login' method='post')
+                .form-group
+                    label Email
+                    input(type='text' class='form-control' name='email')
+                .form-group
+                    label Password
+                    input(type='password' class='form-control' name='password')
+                button(type='submit' class='btn btn-success') Login
+                
+            p.text-center Need an account? <br/>
+                a(href='/signup') Signup
         
