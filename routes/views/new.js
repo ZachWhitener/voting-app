@@ -50,6 +50,6 @@ exports = module.exports = function(req, res) {
         });
         
         
-        res.render('views/new');
+        res.render('views/poll');
     }
 }

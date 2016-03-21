@@ -15,7 +15,7 @@ block content
                 -})
             else
                 p.text-muted(style='margin-bottom: 50px') Looks like you haven't created any polls yet. 
-                + Click on the button below to get started.
+                | Click on the button below to get started.
             
-            button.btn.btn-success.pull-right New poll
-                a(href='/new') 
+            a(href='/new')
+                button.btn.btn-success.pull-right New poll
